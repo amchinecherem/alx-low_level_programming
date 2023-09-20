@@ -5,20 +5,22 @@
  * followed by a new line of code again
  * @str: string to print the chars from
  */
-void puts2(char *str)
+void puts_half(char *str)
 {
-	int len, i;
+	int full_string, half_string;
 
-	len = 0;
+	full_string = 0;
 
-	while (str[len] != '\0')
+	while (str[full_string] != '\0')
+		full_string++;
+
+	half_string = full_string/2;
+	if (full_string % 2 == 1)
+		half_string++;
+	while (half_string < full_string)
 	{
-		len++;
-	}
-
-	for (i = 0; i < len; i += 2)
-	{
-		_putchar(str[i]);
+		_putchar(str[half_string]);
+		half_string++;
 	}
 
 	_putchar('\n');
